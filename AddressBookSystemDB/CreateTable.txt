@@ -1,0 +1,66 @@
+mysql> CREATE TABLE address_book_table
+    -> (
+    -> FirstName        VARCHAR(150) NOT NULL,
+    -> LastName         VARCHAR(150) NOT NULL,
+    -> Address          VARCHAR(150) NOT NULL,
+    -> City             VARCHAR(150) NOT NULL,
+    -> Zip              int NOT NULL,
+    -> PhoneNumbe       int NOT NULL,
+    -> Email            VARCHAR(150) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> desc address_book_service;
+ERROR 1146 (42S02): Table 'address_book_service.address_book_service' doesn't exist
+mysql> desc address_book_table;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| FirstName  | varchar(150) | NO   |     | NULL    |       |
+| LastName   | varchar(150) | NO   |     | NULL    |       |
+| Address    | varchar(150) | NO   |     | NULL    |       |
+| City       | varchar(150) | NO   |     | NULL    |       |
+| Zip        | int          | NO   |     | NULL    |       |
+| PhoneNumbe | int          | NO   |     | NULL    |       |
+| Email      | varchar(150) | NO   |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+7 rows in set (0.02 sec)
+
+mysql> ALTER TABLE address_book_table
+    -> RENAME COLUMN PhoneNumbe TO PhoneNumber;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc address_book_table;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| FirstName   | varchar(150) | NO   |     | NULL    |       |
+| LastName    | varchar(150) | NO   |     | NULL    |       |
+| Address     | varchar(150) | NO   |     | NULL    |       |
+| City        | varchar(150) | NO   |     | NULL    |       |
+| Zip         | int          | NO   |     | NULL    |       |
+| PhoneNumber | int          | NO   |     | NULL    |       |
+| Email       | varchar(150) | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> ALTER TABLE address_book_table
+    -> ADD COLUMN State varchar(150) AFTER City;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc address_book_table;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| FirstName   | varchar(150) | NO   |     | NULL    |       |
+| LastName    | varchar(150) | NO   |     | NULL    |       |
+| Address     | varchar(150) | NO   |     | NULL    |       |
+| City        | varchar(150) | NO   |     | NULL    |       |
+| State       | varchar(150) | YES  |     | NULL    |       |
+| Zip         | int          | NO   |     | NULL    |       |
+| PhoneNumber | int          | NO   |     | NULL    |       |
+| Email       | varchar(150) | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)

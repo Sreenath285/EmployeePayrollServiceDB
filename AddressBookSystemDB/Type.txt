@@ -1,0 +1,25 @@
+mysql> ALTER TABLE address_book_table ADD Type VARCHAR(25) AFTER Email;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE address_book_table SET Type="Family" WHERE FirstName="Sreejesh";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book_table SET Type="Family" WHERE FirstName="Sreepad";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE address_book_table SET Type="Friend" WHERE FirstName="Yashwanth";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book_table;
++-----------+----------+---------------+-----------+-----------+--------+-------------+---------------------+--------+
+| FirstName | LastName | Address       | City      | State     | Zip    | PhoneNumber | Email               | Type   |
++-----------+----------+---------------+-----------+-----------+--------+-------------+---------------------+--------+
+| Sreejesh  | Emidi    | Gandhi Nagar  | Adoni     | Andhra    | 518301 |      229654 | sreejesh@gmail.com  | Family |
+| Sreepad   | Emidi    | Shanti Estate | Adoni     | Andhra    | 518301 |      233218 | sreepad@gmail.com   | Family |
+| Yashwanth | Rasale   | Marathahalli  | Bangalore | Karnataka | 560037 |      445566 | yashwanth@gmail.com | Friend |
++-----------+----------+---------------+-----------+-----------+--------+-------------+---------------------+--------+
+3 rows in set (0.00 sec)

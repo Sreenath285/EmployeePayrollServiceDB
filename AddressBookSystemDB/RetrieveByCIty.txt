@@ -1,0 +1,8 @@
+mysql> SELECT FirstName FROM address_book_table WHERE City="Adoni";
++-----------+
+| FirstName |
++-----------+
+| Sreejesh  |
+| Sreepad   |
++-----------+
+2 rows in set (0.00 sec)
